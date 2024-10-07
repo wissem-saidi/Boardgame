@@ -36,13 +36,11 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
+       stage('SonarQube Analsyis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner \
-                            -Dsonar.projectKey=Boardgame \
-                            -Dsonar.projectName=Boardgame \
-                            -Dsonar.java.binaries=target/classes '''
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=BoardGame -Dsonar.projectKey=BoardGame \
+                            -Dsonar.java.binaries=. '''
                 }
             }
         }
